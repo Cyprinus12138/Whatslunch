@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>布狼牙の午餐</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav">
+            <a class="icon icon-me pull-left open-panel"></a>
+            <h1 class="title">布狼牙の午餐</h1>
+            <a class="icon icon-caret pull-right open-popup"></a>
+        </header>
+       <nav class="bar bar-tab"></nav>
+        <div class="content">
+            <div class="content-block">
+                <h1 id="text1">吃什么呢?</h1>
+                <p class="buttons-row">
+                    <button class="button button-big" id="btn1">开始！</button>
+                    <button class="button button-big" id="btn2">停止！</button>
+                    <button class="button button-big" id="btn3">重置！</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popup popup-about">
+    <div class="content-block">
+        <p>About</p>
+        <p>By Cyprinus12138</p>
+        <a href="https://github.com/Cyprinus12138">https://github.com/Cyprinus12138</a>
+        <p><a href="#" class="close-popup">关闭</a></p>
+    </div>
+</div>
+<div class="panel-overlay"></div>
+<div class="panel panel-left panel-reveal">
+    <div class="content-block">
+        <p>别看了，想想吃啥赶紧</p>
+        <p></p>
+        <p><a href="#" class="close-panel">关闭</a></p>
+    </div>
+</div>
+
+
+<script>$.init()</script>
+<script>
+    var btn1=document.getElementById("btn1");
+    var btn2=document.getElementById("btn2");
+    var btn3=document.getElementById("btn3");
+    var i=0;
+    var foodList = ["鱿鱼串","车厘子","草莓","西瓜","哈密瓜","山竹","榴莲","大虾","生蚝","蟹黄","火锅","烤肉","竹鼠","薯片","烤鱼","薯条","炸鸡","汉堡","土豆泥","石锅拌饭","周黑鸭","鲜芋鲜","冰沙","牛排","白斩鸡","鱼籽","章鱼小丸子","披萨","蜗牛","刀削面","酸辣粉","泡面","小馄饨","水饺","生煎","油条","小笼包","灌汤包","肠粉","腌笃鲜","可乐鸡翅","寿司","糖醋排骨","酒酿小圆子","鸭脖","土豆片","藕片","海苔","一点点","鹿角巷","coco","喜茶","热牛奶","芬达","苹果汁","石榴汁","猕猴桃汁","葡萄汁","妹汁","美年达","可乐"];
+    btn1.onclick=function(){
+        btn1.disabled=true;
+        time=setInterval(function(){
+            i++;
+            if(i>foodList.length){
+                i=0;
+            }
+            $("#text1").text(foodList[i]);
+        },50)
+    };
+    btn2.onclick=function(){
+        btn1.disabled=false;
+        clearInterval(time);
+    };
+    btn3.onclick=function () {
+        $("#text1").text("吃什么呢?");
+    }
+</script>
+</body>
+</html>
